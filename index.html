@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang='ja'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='style.css'>
+    <title>Document</title>
+</head>
+<body>
+    <h1>FizzBazz問題</h1>
+    <div class='r1'>
+        <p class='p1'>FizzNum:</p>
+        <input type='text' value='' id='text1' placeholder='整数値を入力してください'>
+    </div>
+    <div class='r2'>
+        <p class='p2'>BuzzNum:</p>
+        <input type='text' value='' id='text2' placeholder='整数値を入力してください'>
+    </div>
+    <p><input type='button' value='実行する' onclick='clickButton_002()'></p>
+    <div id='fizzbuzztext'></div>
+    <script>
+      function addChild(integer, param) {
+        var parent = document.getElementById('fizzbuzztext');
+        let child = document.createElement('div');
+        child.id = 'child_' + integer;
+        child.innerText = `${integer} ${param}`;
+        child = parent.appendChild(child);
+      }
+    function displayFizzBuzz(fizzNum, buzzNum) {
+      for(let integer = 1; integer < 100; integer += 1) {
+          if (!isNaN(fizzNum) && !isNaN(buzzNum)){
+              const isFizz = integer % fizzNum === 0;
+              const isBuzz = integer % buzzNum === 0;
+              if (isFizz && isBuzz) {
+                  addChild(integer, 'FizzBuzz');
+              } else if (isFizz) {
+                  addChild(integer, 'Fizz');
+              } else if (isBuzz) {
+                  addChild(integer, 'Buzz');
+              }
+            }
+          }
+        }
+    function jedgevalue(fizzNum, buzzNum) {
+      if(!Number.isInteger(fizzNum) || !Number.isInteger(buzzNum)) {
+        fizzbuzztext.innerHTML = '整数値を入力してください';
+        return;
+        }
+      }
+
+        function clickButton_002() {
+            fizzbuzztext.innerHTML = '';
+            const fizzNum = Number(document.getElementById('text1').value);
+            const buzzNum = Number(document.getElementById('text2').value);
+            const outputjedge = jedgevalue(fizzNum, buzzNum);
+            if (outputjedge) {
+            } else {
+              displayFizzBuzz(fizzNum, buzzNum);
+            }
+        }
+
+
+    </script>
+</body>
+</html>

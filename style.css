@@ -1,0 +1,26 @@
+.r1{
+  display: flex;
+}
+
+.r1 input{
+  width: 150px;
+  height: 15px;
+  margin-left: 5px;
+}
+
+.p1{
+  margin: 0;
+}
+
+.r2{
+  display: flex;
+}
+
+.r2 input{
+  width: 150px;
+  height: 15px;
+}
+
+.p2{
+  margin: 0;
+}
