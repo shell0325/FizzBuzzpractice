@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>FizzBazz問題</h1>
+    <h1>FizzBuzz問題</h1>
     <div class='r1'>
         <p class='p1'>FizzNum:</p>
         <input type='text' value='' id='text1' placeholder='整数値を入力してください'>
@@ -28,15 +28,15 @@
       }
     function displayFizzBuzz(fizzNum, buzzNum) {
       for(let integer = 1; integer < 100; integer += 1) {
-          if (!isNaN(fizzNum) && !isNaN(buzzNum)){
+          if (Number.isInteger(fizzNum) && Number.isInteger(buzzNum)){
               const isFizz = integer % fizzNum === 0;
               const isBuzz = integer % buzzNum === 0;
               if (isFizz && isBuzz) {
-                  addChild(integer, 'FizzBuzz');
+                  addChild('FizzBuzz' ,integer);
               } else if (isFizz) {
-                  addChild(integer, 'Fizz');
+                  addChild('Fizz' ,integer);
               } else if (isBuzz) {
-                  addChild(integer, 'Buzz');
+                  addChild('Buzz',integer);
               }
             }
           }
